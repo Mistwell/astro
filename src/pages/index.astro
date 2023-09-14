@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import Card from '../components/card/Card';
+import Layout from '../layouts/Layout.astro';
+import products from './../images/products.png';
+import DataWrapper from './../components/data/DataWrapper.astro'
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<h1 class="text-yellow-500 font-inter font-bold text-4xl mt-12">Заголовок Title</h1>
+		<a href="/about" class="block text-yellow-200 text-2xl font-bold">About page</a>
+		<div class="my-4 p-5 border-[2px] border-white">
+			<div class="text-white text-lg"> 
+				Img with Image component on max quality
+			</div>
+			<Image alt="риниколд" src={products} quality={'max'}/>
+		</div>
+		<div class="my-4 p-5 border-[2px] border-white">
+			<div class="text-white text-lg"> 
+				Img with native img tag
+			</div>
+			<img src={'/images/products.png'} />
+		</div>
+		
+		<div class="text-white mt-10 font-2xl font-light">123123123 Кириллица Latin</div>
+
+		<div class="mt-10 grid grid-cols-4 gap-6">
+			<Card/>
+			<Card/>
+			<Card/>
+			<Card/>
+			<Card/>
+		</div>
+		<div class="mt-10">
+			<DataWrapper/>
+		</div>
+	</main>
+</Layout>

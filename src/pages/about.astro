@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import products from './../images/products.png';
+---
+
+<Layout title="About page.">
+	<main>
+		<h1 class="text-yellow-500 font-inter font-bold text-4xl mt-12">This is about page</h1>
+		<a href="/" class="block text-yellow-200 text-2xl font-bold">Back to main</a>
+		<div class="my-4 p-5 border-[2px] border-white">
+			<div class="text-white text-lg"> 
+				Img with Image component on max quality
+			</div>
+			<Image alt="риниколд" src={products} quality={'max'}/>
+		</div>
+	</main>
+</Layout>

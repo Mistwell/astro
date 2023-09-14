@@ -1,0 +1,37 @@
+---
+const response = await fetch(
+		"https://pharmacy-sls-pharma.sbubnom.com/graphql/",
+		{
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
+				query: `
+                query MyQuery($productId:ID!) {
+                    pharmacies {
+                    pharmacyDrugs(filters: {drug: {pk: $productId}}) {
+                        url
+                        pharmacy {
+                        logo {
+                            url
+                        }
+                        name
+                        }
+                    }
+                    }
+                }
+            `,
+				variables: {
+					productId: 36,
+				},
+			}),
+		}
+	);
+
+	const result = await response.json();
+
+	import Data from './Data.tsx'
+---
+
+<div>
+	<Data data={result.data} />
+</div>
